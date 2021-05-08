@@ -5,6 +5,15 @@ extern "C" int NumFibVals;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int v1 = 0, v2 = 0, v3 = 0, v4 = 0;
+	int rv;
+	
+	for (int i = 0; i < NumFibVals; i++)
+	{
+		rv = MemoryAddressing(i, &v1, &v2, &v3, &v4);
+		printf("rv:%5d\tv1:%5d\tv2:%5d\tv3:%5d\tv4:%5d\n", rv, v1, v2, v3, v4);
+	}
+
+	return 0;
 }
 
