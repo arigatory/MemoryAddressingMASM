@@ -41,18 +41,18 @@ MemoryAddressing proc
 ;eg2 - base register + displacement
 
 	mov esi,[ebp+8]			;esi = i
-	shl esi,2
-	mov eax,[esi+FibVals]
+	shl esi,2				;esi = i*4
+	mov eax,[esi+FibVals]	;eax = i*4 + FibVals
 	mov edi,[ebp+16]
 	mov [edi],eax
 
 
 ;eg3 - base register + index register
 
-	mov ebx, offset FibVals
-	mov esi,[ebp+8]
-	shl esi,2
-	mov eax,[ebx+esi]
+	mov ebx, offset FibVals	;ebx = FibVals
+	mov esi,[ebp+8]			;esi = i
+	shl esi,2	   			;esi = i*4
+	mov eax,[ebx+esi]		;eax = Fibvals + i*4
 	mov edi,[ebp+20]
 	mov [edi],eax
 
@@ -60,7 +60,7 @@ MemoryAddressing proc
 
 	mov ebx, offset FibVals
 	mov esi,[ebp+8]
-	mov eax,[ebx+esi*4]
+	mov eax,[ebx+esi*4]		;eax = Fibvals + i*4
 	mov edi,[ebp+24]
 	mov [edi],eax
 
